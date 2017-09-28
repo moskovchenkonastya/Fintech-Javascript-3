@@ -106,7 +106,7 @@ function printNumbers(max, cols) {
                 else
                     str += ' ';
             }else{
-                if(j)
+                if(j && i + j * rows <= max)
                     str += ' ';
                 else
                     str += '';
