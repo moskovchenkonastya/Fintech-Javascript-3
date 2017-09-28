@@ -100,7 +100,7 @@ function printNumbers(max, cols) {
     for (var i = 0; i < rows; i++) {
         for (var j = 0; j < cols; j++) {
 
-            if (!Math.trunc((i + j * rows) / 10)) {
+            if (!Math.trunc((i + j * rows) / 10) && i + j * rows <= max) {
                 if(j)
                     str += '  ';
                 else
@@ -110,7 +110,7 @@ function printNumbers(max, cols) {
                     str += ' ';
                 else
                     str += '';
-	    }
+            }
             if((i + j * rows) < max)
                 str += i + j * rows;
             else{
@@ -119,8 +119,9 @@ function printNumbers(max, cols) {
                 ok = false;
             }
         }
-        if(j != cols - 1 && i != rows - 1)
+        if(j != cols - 1 && i != rows - 1 )
             str += '\n';
+
     }
     return str;
 }
