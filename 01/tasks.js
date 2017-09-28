@@ -89,7 +89,7 @@ fibonacciWithCache = fib();
 function printNumbers(max, cols) {
   var str = '';
   var j;
-  const rows = Math.ceil((max + 1)/ cols);
+  const rows = Math.ceil((max + 1) / cols);
 
   if (max > 100) {
     return str;
