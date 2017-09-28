@@ -103,13 +103,14 @@ function printNumbers(max, cols) {
           str += ' ';
         }
       } else {
-        if (j && i + j * rows <= max) 
+        if (j && i + j * rows <= max)
          str += ' ';
        else
          str += '';
       }
-      if ((i + j * rows) <= max)
+      if ((i + j * rows) <= max) {
         str += i + j * rows;
+      }
     }
     if (j !== cols - 1 && i !== rows - 1)
       str += '\n';
@@ -130,15 +131,15 @@ function rle(input) {
 
   while (i < input.length) {
     str += input[i];
-    var k = 1;
+    let k = 1;
 
     for (j = i + 1; j <= input.length; j++) {
       if (input[i] === input[j]) {
         k++;
       } else {
-        if (k !== 1)
+        if (k !== 1) {
           str += k;
-        break;
+        } break;
       }
     }
     i += k;
