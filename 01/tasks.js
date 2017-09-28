@@ -97,7 +97,7 @@ function printNumbers(max, cols) {
   for (var i = 0; i < rows; i++) {
     for (j = 0; j < cols; j++) {
       if (!Math.trunc((i + j * rows) / 10) && (i + j * rows) <= max) {
-        str += j ? '  ': ' ';
+        str += j ? '  ' : ' ';
       } else {
         str += (j && i + j * rows <= max) ? ' ' : '';
       }
