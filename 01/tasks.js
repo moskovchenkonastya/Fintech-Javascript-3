@@ -89,20 +89,16 @@ fibonacciWithCache = fib();
 function printNumbers(max, cols) {
   var str = '';
   var j;
+  const rows = Math.ceil(max / cols);
 
   if (max > 100) {
     return str;
   }
-  const rows = Math.ceil(max / cols);
-
+  
   for (var i = 0; i < rows; i++) {
     for (j = 0; j < cols; j++) {
       if (!Math.trunc((i + j * rows) / 10) && (i + j * rows) <= max) {
-        if (j) {
-          str += '  ';
-        } else {
-          str += ' ';
-        }
+          str += j ? '  ': ' ';
       } else {
         str += (j && i + j * rows <= max) ? ' ' : '';
       }
