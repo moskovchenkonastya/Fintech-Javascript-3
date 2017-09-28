@@ -103,18 +103,14 @@ function printNumbers(max, cols) {
           str += ' ';
         }
       } else {
-        if (j && i + j * rows <= max)
-         str += ' ';
-       else
-         str += '';
+        str += (j && i + j * rows <= max) ? ' ' : '';
       }
       if ((i + j * rows) <= max) {
         str += i + j * rows;
       }
+      str += (j !== cols - 1 && i !== rows - 1) ? '\n' : '';
     }
-    if (j !== cols - 1 && i !== rows - 1)
-      str += '\n';
-}
+  }
   return str;
 }
 /* ============================================= */
