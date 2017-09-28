@@ -8,6 +8,7 @@ function getMinMax(string) {
 
     let arr = [];
     var j = 0;
+    
     const len = string.length;
     for (var i = 0; i < len; i++) {
         if (!isNaN(parseFloat(string.substring(i, len)))) {
