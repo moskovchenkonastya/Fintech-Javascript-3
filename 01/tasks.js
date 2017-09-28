@@ -6,6 +6,25 @@
  */
 function getMinMax(string) {
 
+    let arr = [];
+    var j = 0;
+    
+    const len = string.length;
+    for (var i = 0; i < len; i++) {
+        if (!isNaN(parseFloat(string.substring(i, len)))) {
+            arr[j] = parseFloat(string.substring(i, len));
+            let s = String(arr[j]);
+            i += s.length;
+            j++;
+        }
+    }
+    if(!isNaN(arr))
+        return {};
+    
+    var min = Math.min(...arr);
+    var max = Math.max(...arr);
+    
+    return {max, min};
 }
 
 /* ============================================= */
@@ -16,7 +35,7 @@ function getMinMax(string) {
  * @return {number} число под номером х
  */
 function fibonacciSimple(x) {
-  return x;
+  return x <= 1 ? x : fibonacciSimple(x - 1) + fibonacciSimple(x - 2);
 }
 
 /* ============================================= */
@@ -27,9 +46,31 @@ function fibonacciSimple(x) {
  * @param {number} x номер числа
  * @return {number} число под номером х
  */
-function fibonacciWithCache(x) {
-  return x;
+let fibonacciWithCache;
+
+function fib(x) {
+
+    let cache = {};
+    let res;
+
+    return x => {
+        if (x in cache) {
+            return cache[x];
+        }
+        if (x == 0)
+            res = 0;
+
+        if (x === 1 || x === 2) {
+            res = 1;
+        } else {
+            res = fibonacciWithCache(x - 1) + fibonacciWithCache(x - 2);
+        }
+        cache[x] =res;
+        return res;
+    };
 }
+
+fibonacciWithCache = fib();
 
 /* ============================================= */
 
@@ -50,8 +91,39 @@ function fibonacciWithCache(x) {
  */
 function printNumbers(max, cols) {
 
-}
+    var str = '';
+    if (max > 100)
+        return str;
 
+    const rows = Math.ceil(max/cols);
+    var ok = true;
+    for (var i = 0; i < rows; i++) {
+        for (var j = 0; j < cols; j++) {
+
+            if (!Math.trunc((i + j * rows) / 10)) {
+                if(j)
+                    str += '  ';
+                else
+                    str += ' ';
+            }else{
+                if(j)
+                    str += ' ';
+                else
+                    str += '';
+	    }
+            if((i + j * rows) < max)
+                str += i + j * rows;
+            else{
+                if(ok)
+                    str += max;
+                ok = false;
+            }
+        }
+        if(j != cols - 1 && i != rows - 1)
+            str += '\n';
+    }
+    return str;
+}
 /* ============================================= */
 
 /**
@@ -60,7 +132,25 @@ function printNumbers(max, cols) {
  * @return {string}
  */
 function rle(input) {
+	var str = '';
+    var i = 0,
+        j = 0;
+    while(i < input.length){
 
+        str += input[i];
+        var k = 1;
+        for (j = i + 1; j <= input.length; j++) {
+            if (input[i] === input[j]) {
+                k++;
+            }else{
+                if ( k != 1)
+                    str += k;
+                break;
+            }
+        }
+        i += k;
+    }
+    return str;
 }
 
 module.exports = {
