@@ -100,7 +100,7 @@ function printNumbers(max, cols) {
     for (var i = 0; i < rows; i++) {
         for (var j = 0; j < cols; j++) {
 
-            if (!Math.trunc((i + j * rows) / 10) && i + j * rows <= max) {
+            if (!Math.trunc((i + j * rows) / 10)) {
                 if(j)
                     str += '  ';
                 else
