@@ -109,7 +109,7 @@ function printNumbers(max, cols) {
       if ((i + j * rows) <= max) {
         str += i + j * rows;
       }
-      str += (j !== cols - 1 && i !== rows - 1) ? '' : '\n';
+      str += (j !== cols - 1 && i !== rows - 1) ? '\n' : '';
     }
   }
   return str;
