@@ -33,7 +33,17 @@ function customBind(func, context, ...args) {
  * sum :: void -> Number
  */
 function sum(x) {
-  return 0;
+  var curSum = x;
+  
+      function f(b) {
+          curSum += b;
+          return f;
+      }
+      f = function() {
+          return curSum;
+      };
+  
+      return f;
 }
 
 /*= ============================================ */
@@ -44,8 +54,12 @@ function sum(x) {
  * @param {string} second
  * @return {boolean}
  */
+var sort = function(str) {
+  return str.replace(/\s+/g, '').toLowerCase().split('').sort().join('');
+}
+
 function anagram(first, second) {
-  return false;
+  return first.trim() === second.trim() ? false : sort(first) === sort(second);
 }
 
 /*= ============================================ */
@@ -57,8 +71,9 @@ function anagram(first, second) {
  * @return {Array<number>} массив уникальных значений, отсортированный по возрастанию
  */
 function getUnique(arr) {
-  return [];
-}
+      let unique = [...new Set(arr)];
+      return unique.sort();
+  }  
 
 /**
  * Найдите пересечение двух массивов
@@ -67,7 +82,17 @@ function getUnique(arr) {
  * @return {Array<number>} массив уникальных значений, отсортированный по возрастанию
  */
 function getIntersection(first, second) {
-  return [];
+  
+          var m = first.length, n = second.length, c = 0, third = [];
+  
+          for (var i = 0; i < m; i++)
+          {
+              let j = 0, k = 0;
+              while (second[j] !== first[ i ] && j < n) j++;
+              while (third[k] !== first[ i ] && k < c) k++;
+              if (j != n && k == c) third[c++] = first[ i ];
+          }
+          return third;
 }
 
 /* ============================================= */
@@ -86,8 +111,33 @@ function getIntersection(first, second) {
  * @return {boolean}
  */
 function isIsomorphic(left, right) {
-
-}
+  
+      let l = left.length, r = right.length;
+      var arr1 = new Array();
+      var arr2 = new Array(l + 1);
+  
+      for(let i = 0; i <= l; i ++){
+          arr2[i] = i;
+      }
+  
+      for(let i = 1; i <= r; i ++) {
+          arr1 = arr2;
+          arr2 = new Array(l + 1);
+          for(let j = 0; j <= l; j ++) {
+              if(j == 0) arr2[j] = i;
+              else {
+                  let cost = (left.charAt(i - 1) != right.charAt(j - 1)) ? 1 : 0;
+                  if(arr2[j - 1] < arr1[j] && arr2[j - 1] < arr1[j - 1] + cost)
+                      arr2[j] = arr2[j - 1] + 1;
+                  else if(arr1[j] < arr1[j - 1] + cost)
+                      arr2[j] = arr1[j] + 1;
+                  else
+                      arr2[j] = arr1[j - 1] + cost;
+              }
+          }
+      }
+      return arr2[l] === 1;
+  }
 
 module.exports = {
   timer,
