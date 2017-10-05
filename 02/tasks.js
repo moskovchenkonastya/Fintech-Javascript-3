@@ -33,17 +33,16 @@ function customBind(func, context, ...args) {
  * sum :: void -> Number
  */
 function sum(x) {
-  var curSum = x;
   
-      function f(b) {
-          curSum += b;
-          return f;
+      if(x === undefined){
+          return 0
       }
-      f = function() {
-          return curSum;
-      };
-  
-      return f;
+      return function(b) {
+          if (b === undefined){
+              return x
+          }
+          return sum(x + b);
+      }
 }
 
 /*= ============================================ */
