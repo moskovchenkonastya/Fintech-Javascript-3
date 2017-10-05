@@ -79,8 +79,6 @@ function anagram(first, second) {
   return first.trim() === second.trim() ? false : sort(first) === sort(second);
 }
 
-
-
 /*= ============================================ */
 
 /**
