@@ -3,11 +3,29 @@
  * Доп. задание: предложите несколько вариантов решения.
  */
 function timer(logger = console.log) {
+  // 1 var
+  /*
   for (var i = 0; i < 10; i++) {
     setTimeout(() => {
       logger(i);
     }, 100);
+  }*/
+
+  // 2 var
+  /*
+  for (let i = 0; i < 10; i++) {
+        (arg => setTimeout(() => {
+            logger(arg);
+    }, 100))(i);
   }
+  */
+  // 3 var 
+  let i = 1;
+  let timerId = setInterval(function() {
+      console.log(i);
+      if (i == 10) clearInterval(timerId);
+      i++;
+  }, 100);
 }
 
 /*= ============================================ */
@@ -20,7 +38,8 @@ function timer(logger = console.log) {
  * @return {Function} функция с нужным контекстом
  */
 function customBind(func, context, ...args) {
-
+  return function(...bindArgs) {
+    func.call(context, ...args, ...bindArgs);
 }
 
 /*= ============================================ */
