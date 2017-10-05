@@ -92,7 +92,7 @@ function getIntersection(first, second) {
               while (third[k] !== first[ i ] && k < c) k++;
               if (j != n && k == c) third[c++] = first[ i ];
           }
-          return third;
+          return third.sort((a, b) => { return a < b ? -1 : 1; });;
 }
 
 /* ============================================= */
