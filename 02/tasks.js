@@ -3,98 +3,157 @@
  * Доп. задание: предложите несколько вариантов решения.
  */
 function timer(logger = console.log) {
-  for (var i = 0; i < 10; i++) {
-    setTimeout(() => {
-      logger(i);
+    // 1 var
+    /*
+    for (var i = 0; i < 10; i++) {
+        setTimeout(() => {
+            logger(i);
+        }, 100);
+      }*/
+    
+    // 2 var
+      
+    for (let i = 0; i < 10; i++) {
+        (arg => setTimeout(() => {
+            logger(arg);
+        }, 100))(i);
+    }
+    /*
+    // 3 var 
+    logger(i++);
+    const timePrint = setInterval(() => {
+        logger(i++);
     }, 100);
-  }
+    
+    setTimeout(() => {
+        clearInterval(timePrint);
+    }, 1000);
+    */    
 }
-
-/*= ============================================ */
-
-/**
- * Создайте собственную реализацию функции bind
- * @param {Function} func передаваемая функция
- * @param {any} context контекст
- * @param {Array<any>} args массив аргументов
- * @return {Function} функция с нужным контекстом
- */
-function customBind(func, context, ...args) {
-
-}
-
-/*= ============================================ */
-
-/**
- * Напишите функцию sum, вычисляющую суммы подобным образом:
- * sum(1)(2)( ) // 3
- * sum(1)(2)(3)( ) // 6
- * sum :: Number -> sum
- * sum :: void -> Number
- */
-function sum(x) {
-  return 0;
-}
-
-/*= ============================================ */
-
-/**
- * Определите, являются ли строчки анаграммами (например, “просветитель” — “терпеливость”).
- * @param {string} first
- * @param {string} second
- * @return {boolean}
- */
-function anagram(first, second) {
-  return false;
-}
-
-/*= ============================================ */
-
-/**
- * Сократите массив до набора уникальных значений
- * [1,1, 2, 6, 3, 6, 2] → [1, 2, 3, 6]
- * @param {Array<number>} исходный массив
- * @return {Array<number>} массив уникальных значений, отсортированный по возрастанию
- */
-function getUnique(arr) {
-  return [];
-}
-
-/**
- * Найдите пересечение двух массивов
- * [1, 3, 5, 7, 9] и [1, 2, 3, 4] → [1, 3]
- * @param {Array<number>, Array<number>} first, second исходные массивы
- * @return {Array<number>} массив уникальных значений, отсортированный по возрастанию
- */
-function getIntersection(first, second) {
-  return [];
-}
-
-/* ============================================= */
-
-/**
- * Две строки называются изоморфными, когда в строке A можно заменить
- * конкретный символ на любой другой для получения строки B. (Расстояние Левенштейна, при возможных мутациях
- * ограничивающихся заменой символа - отличается на 1).
- * Отдельно стоит отметить что строка изоморфна самой себе.
- * Порядок символов должен остаться неизменным. Каждый
- * последовательный символ в строке A сравнивается с
- * каждым последовательным символов в строке B.
- *
- * @param  {string} left
- * @param  {string} right
- * @return {boolean}
- */
-function isIsomorphic(left, right) {
-
-}
-
-module.exports = {
-  timer,
-  customBind,
-  sum,
-  anagram,
-  getUnique,
-  getIntersection,
-  isIsomorphic
-};
+    
+    /*= ============================================ */
+    
+    /**
+     * Создайте собственную реализацию функции bind
+     * @param {Function} func передаваемая функция
+     * @param {any} context контекст
+     * @param {Array<any>} args массив аргументов
+     * @return {Function} функция с нужным контекстом
+     */
+    function customBind(func, context, ...args) {
+        return function(...bindArgs) {
+            func.call(context, ...args, ...bindArgs);
+        };
+    } 
+    
+    /*= ============================================ */
+    
+    /**
+     * Напишите функцию sum, вычисляющую суммы подобным образом:
+     * sum(1)(2)( ) // 3
+     * sum(1)(2)(3)( ) // 6
+     * sum :: Number -> sum
+     * sum :: void -> Number
+     */
+    function sum(x) {
+        if(x === undefined){
+            return 0;
+        }
+        return function(b) {
+            if (b === undefined) { 
+                return x;
+            }
+            return sum(x + b);
+        };
+    }
+    
+    /*= ============================================ */
+    
+    /**
+     * Определите, являются ли строчки анаграммами (например, “просветитель” — “терпеливость”).
+     * @param {string} first
+     * @param {string} second
+     * @return {boolean}
+     */
+    var sort = function(str) {
+        return str.replace(/\s+/g, '').toLowerCase().split('').sort().join('');
+    };
+    
+    function anagram(first, second) {
+        return first.trim() === second.trim() ? false : sort(first) === sort(second);
+    }
+    
+    /*= ============================================ */
+    
+    /**
+     * Сократите массив до набора уникальных значений
+     * [1,1, 2, 6, 3, 6, 2] → [1, 2, 3, 6]
+     * @param {Array<number>} исходный массив
+     * @return {Array<number>} массив уникальных значений, отсортированный по возрастанию
+     */
+    function getUnique(arr) {
+        let unique = [...new Set(arr)];
+        return sort(unique);
+    }  
+    
+    /**
+     * Найдите пересечение двух массивов
+     * [1, 3, 5, 7, 9] и [1, 2, 3, 4] → [1, 3]
+     * @param {Array<number>, Array<number>} first, second исходные массивы
+     * @return {Array<number>} массив уникальных значений, отсортированный по возрастанию
+     */
+    function getIntersection(first, second) {
+      
+        var m = first.length, res = [];
+        if (first === second) {
+            return 0;
+        }
+        for (let i = 0; i < m; i++) {
+            const pos = second.indexOf(first[i]);
+            if (pos >= 0) {
+                res.push(second[pos]);
+                second.splice(pos, 1);
+            }
+        }
+        return res.sort((a, b) => { return a < b ? -1 : 1; });
+    }
+    
+    /* ============================================= */
+    
+    /**
+     * Две строки называются изоморфными, когда в строке A можно заменить
+     * конкретный символ на любой другой для получения строки B. (Расстояние Левенштейна, при возможных мутациях
+     * ограничивающихся заменой символа - отличается на 1).
+     * Отдельно стоит отметить что строка изоморфна самой себе.
+     * Порядок символов должен остаться неизменным. Каждый
+     * последовательный символ в строке A сравнивается с
+     * каждым последовательным символов в строке B.
+     *
+     * @param  {string} left
+     * @param  {string} right
+     * @return {boolean}
+     */
+    function isIsomorphic(left, right) {
+    
+        let l = left.length, r = right.length, k = 0;
+    
+        if(l !== r) {
+            return false;
+        }
+        for (let i = 0; i < l; i++) {
+            if (left[i] !== right[i]) {
+                k++;
+            }    
+        }
+        return k === 1;
+    }
+    
+    module.exports = {
+        timer,
+        customBind,
+        sum,
+        anagram,
+        getUnique,
+        getIntersection,
+        isIsomorphic
+    };
