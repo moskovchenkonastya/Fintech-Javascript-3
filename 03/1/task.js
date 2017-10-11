@@ -10,7 +10,7 @@
  */
 class NumberAndString {
   constructor(str, number) {
-    this.str = str;
+    this.string = str;
     this.number = str.length
   }
   toString() {
