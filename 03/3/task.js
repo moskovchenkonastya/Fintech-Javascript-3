@@ -22,7 +22,5 @@ function promiseAll(promises) {
       );
     });
   });  
-  // в конце — выводим результаты
-  
 }
 module.exports = promiseAll;
