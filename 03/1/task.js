@@ -11,7 +11,7 @@
 class NumberAndString {
   constructor(str) {
     this.string = str;
-    this.number = str.length
+    this.number = str.length;
   }
   toString() {
     return this.string;

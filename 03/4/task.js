@@ -10,12 +10,11 @@ function promiseRace(promises) {
     promises.forEach(promise => {
       promise.then(
         result => {
-        resolve(result);
-      },
-      reject
-    );
+          resolve(result);
+        },
+        reject
+      );
     });
   });
-} 
-
+}
 module.exports = promiseRace;
