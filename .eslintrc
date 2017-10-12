@@ -20,7 +20,8 @@
   "globals": {
     "ymaps": true,
     "grabber": true,
-    "jasmine": true
+    "jasmine": true,
+    "module": false
   },
   "rules": {
     "indent": [
