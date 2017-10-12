@@ -9,7 +9,7 @@
  * @param {String} str - initial value
  */
 class NumberAndString {
-  constructor(str, number) {
+  constructor(str) {
     this.string = str;
     this.number = str.length
   }
