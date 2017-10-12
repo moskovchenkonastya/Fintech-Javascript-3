@@ -6,21 +6,21 @@
  * @return {Promise}
  */
 function promiseAll(promises) {
-  const results = []
+  const results = [];
   let k = 0;
-  return new Promise((resolve, reject) => {
 
+  return new Promise((resolve, reject) => {
     promises.forEach((promise, i) => {
       promise.then(
         result => {
-        results[i] = result;  
-        if(++k === promises.length){
-          resolve(results);  
-        }  
-      },
-      reject
+          results[i] = result;
+          if (++k === promises.length) {
+            resolve(results);
+          }
+        },
+        reject
       );
     });
-  });  
+  });
 }
 module.exports = promiseAll;

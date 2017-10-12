@@ -13,6 +13,6 @@ function rejectOnTimeout(promise, timeoutInMilliseconds) {
     setTimeout(() => {
       reject('timeout_error');
     }, timeoutInMilliseconds);
-  });  
+  });
 }
 module.exports = rejectOnTimeout;
