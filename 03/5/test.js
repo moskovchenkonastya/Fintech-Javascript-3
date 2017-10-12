@@ -1,5 +1,5 @@
 /* eslint-disable no-floating-decimal */
-// require('./task.js');
+require('./task.js');
 const expect = require('expect.js');
 
 describe('Lesson 3 - task 5', () => {

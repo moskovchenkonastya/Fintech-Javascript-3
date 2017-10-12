@@ -22,11 +22,13 @@ const romanDigit = {
     M: 1000
 };
 
-function arabicDigit(number) {
-    return number.match(/IV|IX|XL|XC|CD|CM|I|V|X|L|C|D|M/g).reduce((result, digit) => result + romanDigit[digit], 0);
+function arabicDigit(number) {  
+    const num = number.match(/IV|IX|XL|XC|CD|CM|I|V|X|L|C|D|M/g).reduce((result, digit) => result + romanDigit[digit], 0);
+
+    return [...Array(num).keys()];
 }
 const myProto = Object.getPrototypeOf(Number.prototype);
 const proxy = new Proxy(myProto, {
-    get: (target, prop) => (prop in target ? target.prop : [...Array(arabicDigit(prop)).keys()])
+    get: (target, prop) => (prop in target ? target[prop] : arabicDigit(prop))
 });
 Object.setPrototypeOf(Number.prototype, proxy);
