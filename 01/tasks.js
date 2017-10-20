@@ -1,11 +1,27 @@
 /**
  * найдите минимум и максимум в любой строке
  * @param  {string} string входная строка(числа отделены от других частей строки пробелами или знаками препинания)
- * @return {{min: number, max: number}} объект с минимумом и максимумом
+ * @return {{min: number, max: number}} oбъект с минимумом и максимумом
  * '1 и 6.45, -2, но 8, а затем 15, то есть 2.7 и -1028' => { min: -1028, max: 15 }
  */
 function getMinMax(string) {
+  let arr = [];
+  var j = 0;
+  const len = string.length;
 
+  for (var i = 0; i < len; i++) {
+    if (!isNaN(parseFloat(string.substring(i, len)))) {
+      arr[j] = parseFloat(string.substring(i, len));
+      let s = String(arr[j]);
+
+      i += s.length;
+      j++;
+    }
+  }
+  var min = Math.min(...arr);
+  var max = Math.max(...arr);
+
+  return { max, min };
 }
 
 /* ============================================= */
@@ -16,7 +32,7 @@ function getMinMax(string) {
  * @return {number} число под номером х
  */
 function fibonacciSimple(x) {
-  return x;
+  return x <= 1 ? x : fibonacciSimple(x - 1) + fibonacciSimple(x - 2);
 }
 
 /* ============================================= */
@@ -27,9 +43,31 @@ function fibonacciSimple(x) {
  * @param {number} x номер числа
  * @return {number} число под номером х
  */
-function fibonacciWithCache(x) {
-  return x;
+let fibonacciWithCache;
+
+function fib(x) {
+  let cache = {};
+  let res;
+
+  return x => {
+    if (x in cache) {
+      return cache[x];
+    }
+    if (x === 0) {
+      res = 0;
+    }
+
+    if (x === 1 || x === 2) {
+      res = 1;
+    } else {
+      res = fibonacciWithCache(x - 1) + fibonacciWithCache(x - 2);
+    }
+    cache[x] = res;
+    return res;
+  };
 }
+
+fibonacciWithCache = fib();
 
 /* ============================================= */
 
@@ -49,9 +87,28 @@ function fibonacciWithCache(x) {
  * @return {string}
  */
 function printNumbers(max, cols) {
+  var str = '';
+  var j;
+  const rows = Math.ceil((max + 1) / cols);
 
+  if (max > 100) {
+    return str;
+  }
+  for (var i = 0; i < rows; i++) {
+    for (j = 0; j < cols; j++) {
+      if (!Math.trunc((i + j * rows) / 10) && (i + j * rows) <= max) {
+        str += j ? '  ' : ' ';
+      } else {
+        str += (j && i + j * rows <= max) ? ' ' : '';
+      }
+      if ((i + j * rows) <= max) {
+        str += i + j * rows;
+      }
+    }
+    str += (j !== cols - 1 && i !== rows - 1) ? '\n' : '';
+  }
+  return str;
 }
-
 /* ============================================= */
 
 /**
@@ -60,7 +117,26 @@ function printNumbers(max, cols) {
  * @return {string}
  */
 function rle(input) {
+  var str = '';
+  var i = 0;
+  var j = 0;
 
+  while (i < input.length) {
+    str += input[i];
+    let k = 1;
+
+    for (j = i + 1; j <= input.length; j++) {
+      if (input[i] === input[j]) {
+        k++;
+      } else {
+        if (k !== 1) {
+          str += k;
+        } break;
+      }
+    }
+    i += k;
+  }
+  return str;
 }
 
 module.exports = {
