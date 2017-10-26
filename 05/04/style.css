@@ -1,18 +1,235 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Задание 5.4</title>
-</head>
-<body>
-<h1>Сверстать форму. Pixel-perfect. Select делать не нужно</h1>
-<p>
-    Подробности по ссылке:
-    <a href="https://app.zeplin.io/project/58a307271a9f6d513890adc8/screen/58a3075a4ec334e848d7f333">
-        https://app.zeplin.io/project/58a307271a9f6d513890adc8/screen/58a3075a4ec334e848d7f333
-    </a>, для того чтобы получить доступ, нужно зарегестрироваться на
-    <a href="https://zeplin.io/">zeplin.io</a>, и попросить доступ у Евгения Мамаева.
-</p>
-<img src="./task.png" alt="">
-</body>
-</html>
+body {
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: Roboto, -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI',
+    'Helvetica Neue', Arial, sans-serif;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+  
+  .wrapper {
+    margin: 0 auto;
+    padding: 0 18px;
+    max-width: 864px;
+  }
+
+
+  .form_full {
+    margin: 65px auto 39px;
+    max-width: 540px;
+    text-align: center;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 27px;
+    padding: 0;
+    border: none;
+  }
+  
+  .form_list{
+    position: relative;
+    margin: 12px 0;
+  }
+  
+  .form_list-input {
+    padding: 23px 20px;
+    width: 100%;
+    border: none;
+    border-radius: 6px;
+    background-color: #eef2f7;
+    color: #333;
+    font-size: 17px;
+    font-family: Roboto;
+    line-height: 1.18;
+  }
+  
+  .form_list-label {
+    position: absolute;
+    top: 22px;
+    left: 20px;
+    color: #74a3c7;
+    font-size: 17px;
+    line-height: 1.18;
+    opacity: 0.6;
+    transition: all 0.2s ease-in-out;
+    transform: translate(0, 0);
+  }
+  
+  .form_list-input[data-empty='false'],
+  .form_list-input:valid {
+    padding: 32px 20px 14px;
+  }
+  
+  .form_list-input:focus {
+    padding: 32px 20px 14px;
+    background-color: #fff;
+  }
+  
+  .form_list-input[data-empty='false'] + .form_list-label,
+  .form_list-input:valid + .form_list-label,
+  .form_list-input:focus + .form_list-label {
+    color: #74a3c7;
+    font-size: 13px;
+    line-height: 1.15;
+    transform: translate(0, -8px);
+  }
+  
+  .form_warning {
+    display: none;
+    margin: 11px 0 4px;
+    color: #d0021b;
+    text-align: left;
+    font-size: 13px;
+    line-height: 1.16;
+  }
+  
+  .form_error {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none;
+    padding: 0 24px;
+    width: 24px;
+    height: 66px;
+    border-radius: 6px;
+    background-color: inherit;
+    background-image: url(img/warner.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  .form_help {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 24px;
+    width: 24px;
+    height: 66px;
+    border-radius: 6px;
+    background-color: inherit;
+    background-image: url(img/helper.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
+  
+  .form_help-text {
+    position: absolute;
+    top: 20px;
+    right: 56px;
+    display: none;
+    padding: 16px;
+    width: 284px;
+    border: solid 1px #dddfe0;
+    border-radius: 6px;
+    background-color: #fff;
+    color: #9299a2;
+    text-align: left;
+    font-size: 13px;
+    line-height: 1.38;
+    transform: translate(0, -50%);
+  }
+  
+  .form_help:hover .form_help-text {
+    display: block;
+  }
+  
+  .form_list--error .form_list-input {
+    outline: none;
+    background-color: inherit;
+    box-shadow: 0 0 0 1px #d0011b;
+  }
+  
+  .form_list--error .form_warning {
+    display: block;
+  }
+  
+  .form_list--error .form_error {
+    display: block;
+  }
+  
+  .form_set {
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+  
+  .button--form {
+    margin: 38px 0 42px;
+    padding: 23px 86px;
+  }
+  
+  .header-second {
+    margin: 0;
+    color: #333;
+    text-align: center;
+    font-weight: 300;
+    font-size: 50px;
+    line-height: 1.08;
+  }
+
+  .selector-header {
+    margin: 30px 0 13px;
+    color: #333;
+    text-align: center;
+    font-weight: 300;
+    font-size: 21px;
+    line-height: 1.15;
+  }
+  
+  .select {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -12px;
+  }
+  
+  .select_list {
+    position: relative;
+    margin: 12px;
+    width: calc(50% - 24px);
+    border: solid 1px #dddfe0;
+    border-radius: 6px;
+    color: #333;
+    text-align: left;
+    font-size: 17px;
+    /*stylelint-disable */
+    font-family: Roboto, -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI',
+      'Helvetica Neue', Arial, sans-serif;
+    /*stylelint-enable */
+    line-height: 1.18;
+  }
+  
+  .select_label {
+    position: relative;
+    display: block;
+    padding: 21px 18px;
+  }
+  
+  .select_check{
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    z-index: -1;
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    background-color: #eef2f7;
+    content: '';
+  }
+  
+  .select_radio {
+    position: absolute;
+    visibility: hidden;
+  }
+  
+  .select_radio:check ~ .select_check {
+    border: 11px solid #ffdd2f;
+    background-color: #3e4757;
+  }

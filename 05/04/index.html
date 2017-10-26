@@ -1,18 +1,63 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Задание 5.4</title>
+    <meta charset="utf-8">
+    <title>Тинькофф</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,400i,700&amp;subset=cyrillic" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 </head>
 <body>
-<h1>Сверстать форму. Pixel-perfect. Select делать не нужно</h1>
-<p>
-    Подробности по ссылке:
-    <a href="https://app.zeplin.io/project/58a307271a9f6d513890adc8/screen/58a3075a4ec334e848d7f333">
-        https://app.zeplin.io/project/58a307271a9f6d513890adc8/screen/58a3075a4ec334e848d7f333
-    </a>, для того чтобы получить доступ, нужно зарегестрироваться на
-    <a href="https://zeplin.io/">zeplin.io</a>, и попросить доступ у Евгения Мамаева.
-</p>
-<img src="./task.png" alt="">
+    <div class="wrapper">
+        <form class="form_full">
+                <fieldset class="form">
+                    <div class="form_list">
+                        <input id="form-name" class="form_list-input form_list-input--name" type="text" autocomplete="off" required>
+                        <label class="form_list-label" for="form-name">ФИО</label>
+                    </div>
+                    <div class="form_list">
+                        <input id="form-locality" class="form_list-input form_list-input--locality" type="text" autocomplete="off" required>
+                        <label class="form_list-label" for="form-locality">Город проживания</label>
+                        <div class="form_error"></div>
+                        <div class="form_warning">Для заполнения этого поля не допустимо использовать буквы латинского алфавита</div>
+                    </div>
+                    <div class="form_list">
+                        <input id="form-phone" class="form_list-input" type="phone" autocomplete="off" required>
+                        <label class="form_list-label" for="form-phone">Мобильный телефон</label>
+                    </div>
+                    <div class="form_list">
+                        <input id="form-email" class="form_list-input form_list-input--email" type="text" autocomplete="off" required>
+                        <label class="form_list-label" for="form-email">Электронная почта</label>
+                        <div class="form_help">
+                            <p class="form_help-text">
+                                Ваши данные замаскированы в целях безопасности. Для изменения информации с вами свяжется оператор колл-центра.
+                            </p>
+                        </div>
+                    </div>
+                </fieldset>
+        
+                <fieldset class="form_set">
+                    <legend class="header-select">Выберите это или другое</legend>
+        
+                    <div class="select">
+                        <div class="select_list">
+                            <label class="select_label" for="this">Это
+                                <input type="radio" id="this" class="select__radio" name="select" checked>
+                                <span class="select_check"></span>
+                            </label>
+                        </div>
+                        <div class="select_list">
+                            <label class="select_label" for="other">Другое
+                                <input type="radio" id="other" class="select_radio" name="select">
+                                <span class="select_check"></span>
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+        
+                <button class="button button--form" type="submit">Отправить</button>
+            </form>
+        </div>    
 </body>
 </html>
