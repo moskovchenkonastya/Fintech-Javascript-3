@@ -1,125 +1,153 @@
 body {
+    font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     box-sizing: border-box;
-    font-size: 16px;
-    font-family: Roboto, -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI',
-    'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
   }
   
   *,
-  *::before,
-  *::after {
+  *::before {
     box-sizing: inherit;
   }
-  
-  .wrapper {
+  .header {
+    margin: 0;
+    color: #333;
+    text-align: center;
+    font-weight: 300;
+    font-size: 50px;
+  }
+
+  .form-wrapper {
     margin: 0 auto;
     padding: 0 18px;
     max-width: 864px;
   }
 
-
-  .form_full {
-    margin: 65px auto 39px;
+  .form-head {
+    margin: 67px auto;
     max-width: 540px;
     text-align: center;
   }
-  
-  .form {
+
+  .form-set {
     display: flex;
     flex-direction: column;
     margin: 0 0 27px;
     padding: 0;
     border: none;
-  }
-  
-  .form_list{
+  } 
+  .form-elem {
     position: relative;
-    margin: 12px 0;
+    margin: 24px 0;
   }
   
-  .form_list-input {
+  .input-elem {
     padding: 23px 20px;
+    font-family: Roboto, -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 17px;
     width: 100%;
     border: none;
     border-radius: 6px;
     background-color: #eef2f7;
     color: #333;
-    font-size: 17px;
-    font-family: Roboto;
-    line-height: 1.18;
   }
   
-  .form_list-label {
-    position: absolute;
-    top: 22px;
-    left: 20px;
-    color: #74a3c7;
-    font-size: 17px;
-    line-height: 1.18;
-    opacity: 0.6;
-    transition: all 0.2s ease-in-out;
-    transform: translate(0, 0);
-  }
-  
-  .form_list-input[data-empty='false'],
-  .form_list-input:valid {
+  .input-elem[data-empty='false'],
+  .input-elem:valid {
     padding: 32px 20px 14px;
   }
   
-  .form_list-input:focus {
+  .input-elem:focus {
     padding: 32px 20px 14px;
     background-color: #fff;
   }
   
-  .form_list-input[data-empty='false'] + .form_list-label,
-  .form_list-input:valid + .form_list-label,
-  .form_list-input:focus + .form_list-label {
+  .input-elem[data-empty='false'] + .elem-label,
+  .input-elem:valid + .elem-label,
+  .input-elem:focus + .elem-label {
     color: #74a3c7;
     font-size: 13px;
     line-height: 1.15;
     transform: translate(0, -8px);
   }
   
-  .form_warning {
+  .elem-label {
+    position: absolute;
+    top: 22px;
+    left: 20px;
+    color: #74a3c7;
+    font-size: 17px;
+    opacity: 0.6;
+    transition: all ease-in-out;
+  }
+
+  .sign{
+    position: absolute;
+    background-color: inherit;
+    background-image: url(jpg/profile.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    top: 0;
+    right: 0;
+    padding: 0 24px;
+    width: 24px;
+    height: 66px;
+    border-radius: 6px;
+
+  }
+  
+  .error {
+    position: absolute;
+    background-color: inherit;
+    background-image: url(jpg/error.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    top: 0;
+    right: 0;
     display: none;
+    padding: 0 24px;
+    width: 24px;
+    height: 66px;
+    border-radius: 6px;
+    
+  }
+  
+  .error-message {
     margin: 11px 0 4px;
     color: #d0021b;
     text-align: left;
     font-size: 13px;
-    line-height: 1.16;
+  }
+
+  .error .form-elem {
+    outline: none;
+    background-color: inherit;
+    box-shadow: 0 0 0 1px #d0011b;
   }
   
-  .form_error {
+  .form-elem .error-message {
+    display: block;
+  }
+  
+  .form-elem .error {
+    display: block;
+  }
+  
+  .support {
     position: absolute;
     top: 0;
     right: 0;
-    display: none;
     padding: 0 24px;
     width: 24px;
     height: 66px;
     border-radius: 6px;
     background-color: inherit;
-    background-image: url(img/warner.svg);
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-  
-  .form_help {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 0 24px;
-    width: 24px;
-    height: 66px;
-    border-radius: 6px;
-    background-color: inherit;
-    background-image: url(img/helper.svg);
+    background-image: url(jpg/support.svg);
     background-position: center;
     background-repeat: no-repeat;
     cursor: pointer;
   }
   
-  .form_help-text {
+  .support-message {
     position: absolute;
     top: 20px;
     right: 56px;
@@ -128,7 +156,7 @@ body {
     width: 284px;
     border: solid 1px #dddfe0;
     border-radius: 6px;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 1);
     color: #9299a2;
     text-align: left;
     font-size: 13px;
@@ -136,45 +164,23 @@ body {
     transform: translate(0, -50%);
   }
   
-  .form_help:hover .form_help-text {
+  .support:hover .support-message {
     display: block;
   }
   
-  .form_list--error .form_list-input {
+  .support .support-message {
     outline: none;
-    background-color: inherit;
-    box-shadow: 0 0 0 1px #d0011b;
+    background-color: rgba(255, 255, 255, 1);
+    border: solid 1px #dddfe0;
   }
   
-  .form_list--error .form_warning {
-    display: block;
+  .select-form {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -12px;
   }
   
-  .form_list--error .form_error {
-    display: block;
-  }
-  
-  .form_set {
-    margin: 0;
-    padding: 0;
-    border: none;
-  }
-  
-  .button--form {
-    margin: 38px 0 42px;
-    padding: 23px 86px;
-  }
-  
-  .header-second {
-    margin: 0;
-    color: #333;
-    text-align: center;
-    font-weight: 300;
-    font-size: 50px;
-    line-height: 1.08;
-  }
-
-  .selector-header {
+  .select-legend {
     margin: 30px 0 13px;
     color: #333;
     text-align: center;
@@ -183,13 +189,7 @@ body {
     line-height: 1.15;
   }
   
-  .select {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 -12px;
-  }
-  
-  .select_list {
+  .elem-form {
     position: relative;
     margin: 12px;
     width: calc(50% - 24px);
@@ -198,20 +198,22 @@ body {
     color: #333;
     text-align: left;
     font-size: 17px;
-    /*stylelint-disable */
-    font-family: Roboto, -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI',
-      'Helvetica Neue', Arial, sans-serif;
-    /*stylelint-enable */
+    font-family: Roboto, -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.18;
   }
   
-  .select_label {
+  .select-label {
     position: relative;
     display: block;
     padding: 21px 18px;
   }
   
-  .select_check{
+  .select-field {
+    position: absolute;
+    visibility: hidden;
+  }
+  
+  .mark {
     position: absolute;
     top: 18px;
     right: 18px;
@@ -219,17 +221,41 @@ body {
     display: block;
     width: 30px;
     height: 30px;
-    border-radius: 100%;
+    border-radius: 50%;
     background-color: #eef2f7;
     content: '';
   }
   
-  .select_radio {
-    position: absolute;
-    visibility: hidden;
+  .select-field:checked ~ .mark {
+    background-color: #ffdd2f;
   }
   
-  .select_radio:check ~ .select_check {
-    border: 11px solid #ffdd2f;
+  .select-field ~ .mark::before {
     background-color: #3e4757;
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    content: '';
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 100%;
+  }
+  
+  .select-field:checked ~ .mark::before {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  .form-button {
+    border: none;
+    border-radius: 6px;
+    background-color: #ffdd2d;
+    color: #333;
+    text-align: center;
+    font-size: 17px;
+    font-family: Roboto, -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.42;
+    margin: 14px;
+    padding: 23px 86px;
   }
