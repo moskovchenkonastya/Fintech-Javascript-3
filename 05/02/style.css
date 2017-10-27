@@ -10,13 +10,13 @@ body {
    box-sizing: inherit;
  }
 
- .wrapper {
+  .wrapper {
     margin: 0 auto;
     padding: 0 18px;
     max-width: 864px;
-}
+  }
 
- .main-button {
+  .main-button {
     border: none;
     border-radius: 6px;
     background-color: #ffdd2d;
@@ -25,9 +25,9 @@ body {
     font-size: 17px;
     font-family: Roboto;
     line-height: 1.42;
- }
+  }
   
- .card-wrapper {
+  .card-wrapper {
     position: relative;
     z-index: 0;
     background-image: linear-gradient(to right, #1489e7, #003e82);

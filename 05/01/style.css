@@ -1,9 +1,9 @@
 body {
-    box-sizing: border-box;
-    font-size: 16px;
-    font-family: Roboto, -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI',
-    'Helvetica Neue', Arial, sans-serif;
-  }
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: Roboto, -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI',
+  'Helvetica Neue', Arial, sans-serif;
+}
   
   *,
   *::before,
@@ -29,7 +29,6 @@ body {
     height: 65px;
   }
  
-
   .menu {
     background-color: #3e4758;
   }
@@ -55,7 +54,6 @@ body {
     line-height: 1.39;
   }
   
- .menu_line--active {
+  .menu_line--active {
     border-bottom: 3px solid #ffdd2d;
- }
-  
+  }
