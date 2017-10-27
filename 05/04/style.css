@@ -163,7 +163,7 @@ body {
   line-height: 1.38;
   transform: translate(0, -50%);
 }
- 
+
 .support:hover .support-message {
   display: block;
 }
