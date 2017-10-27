@@ -1,38 +1,37 @@
 body {
   box-sizing: border-box;
   font-size: 16px;
-  font-family: Roboto, -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI',
-  'Helvetica Neue', Arial, sans-serif;
+  font-family: Roboto;
 }
-  
+
   *,
   *::before,
   *::after {
     box-sizing: inherit;
   }
-  
+
   .wrapper {
     margin: 0 auto;
     padding: 0 18px;
     max-width: 864px;
   }
-  
+
   .main-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 15px 0;
   }
-  
+
   .main-header_logo {
     width: 197px;
     height: 65px;
   }
- 
+
   .menu {
     background-color: #3e4758;
   }
-  
+
   .menu_list {
     display: flex;
     justify-content: space-between;
@@ -43,7 +42,7 @@ body {
     letter-spacing: 0.9px;
     font-size: 13px;
   }
-  
+
   .menu_line {
     display: inline-block;
     padding: 26px 0 18px;
@@ -53,7 +52,7 @@ body {
     font-size: 13px;
     line-height: 1.39;
   }
-  
+
   .menu_line--active {
     border-bottom: 3px solid #ffdd2d;
   }
