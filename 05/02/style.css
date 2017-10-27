@@ -4,11 +4,11 @@ body {
   font-family: Roboto;
 }
 
- *,
- *::before,
- *::after {
+*,
+*::before,
+*::after {
   box-sizing: inherit;
- }
+}
 
 .wrapper {
   margin: 0 auto;
@@ -32,7 +32,7 @@ body {
   z-index: 0;
   background-image: linear-gradient(to right, #1489e7, #003e82);
 }
-  
+
 .card {
   margin: 0 0 91px;
 }
