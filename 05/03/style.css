@@ -52,13 +52,13 @@ body {
   font-size: 13px;
   line-height: 1.39;
 }
-  
+
 .field_text {
   overflow: hidden;
   width: calc(100% + 10px);
   white-space: nowrap;
 }
-  
+
 .field_remove {
   position: absolute;
   top: 0;
@@ -69,12 +69,10 @@ body {
   height: 11px;
   border: none;
   background: rgba(0, 0, 0, 0);
-  background-image: url(jpg/delete.jpg),
-    linear-gradient(to right, rgba(238, 242, 247, 0.5), #eef2f7 30%);
+  background-image: url(jpg/delete.jpg), linear-gradient(to right, rgba(238, 242, 247, 0.5), #eef2f7 30%);
   background-position: 60% 50%;
   background-repeat: no-repeat;
   font-size: 0;
   cursor: pointer;
 }
 
-  

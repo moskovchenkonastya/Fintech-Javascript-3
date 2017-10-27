@@ -1,7 +1,7 @@
 body {
-    font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    box-sizing: border-box;
-    margin: 0;
+  font-family: Roboto;
+  box-sizing: border-box;
+  margin: 0;
 }
 
 *,
@@ -35,7 +35,7 @@ body {
   margin: 0 0 27px;
   padding: 0;
   border: none;
-} 
+}
 
 .form-elem {
   position: relative;
@@ -52,7 +52,7 @@ body {
   background-color: #eef2f7;
   color: #333;
 }
-  
+
 .input-elem[data-empty='false'],
 .input-elem:valid {
   padding: 32px 20px 14px;
@@ -62,7 +62,7 @@ body {
   padding: 32px 20px 14px;
   background-color: #fff;
 }
-  
+
 .input-elem[data-empty='false'] + .elem-label,
 .input-elem:valid + .elem-label,
 .input-elem:focus + .elem-label {
@@ -71,7 +71,7 @@ body {
   line-height: 1.15;
   transform: translate(0, -8px);
 }
- 
+
 .elem-label {
   position: absolute;
   top: 22px;
@@ -108,7 +108,7 @@ body {
   padding: 0 24px;
   width: 24px;
   height: 66px;
-  border-radius: 6px;  
+  border-radius: 6px;
 }
 
 .error-message {
@@ -123,15 +123,15 @@ body {
   background-color: inherit;
   box-shadow: 0 0 0 1px #d0011b;
 }
- 
+
 .form-elem .error-message {
   display: block;
 }
-  
+
 .form-elem .error {
   display: block;
 }
- 
+
 .support {
   position: absolute;
   top: 0;
@@ -146,7 +146,7 @@ body {
   background-repeat: no-repeat;
   cursor: pointer;
 }
- 
+
 .support-message {
   position: absolute;
   top: 20px;
@@ -163,7 +163,7 @@ body {
   line-height: 1.38;
   transform: translate(0, -50%);
 }
-  
+ 
 .support:hover .support-message {
   display: block;
 }
@@ -173,13 +173,13 @@ body {
   background-color: rgba(255, 255, 255, 1);
   border: solid 1px #dddfe0;
 }
-  
+
 .select-form {
   display: flex;
   flex-wrap: wrap;
   margin: 0 -12px;
 }
-  
+
 .select-legend {
   margin: 30px 0 13px;
   color: #333;
@@ -201,18 +201,18 @@ body {
   font-family: Roboto, -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
   line-height: 1.18;
 }
-  
+
 .select-label {
   position: relative;
   display: block;
   padding: 21px 18px;
 }
-  
+
 .select-field {
   position: absolute;
   visibility: hidden;
 }
-  
+
 .mark {
   position: absolute;
   top: 18px;
@@ -225,7 +225,7 @@ body {
   background-color: #eef2f7;
   content: '';
 }
-  
+
 .select-field:checked ~ .mark {
   background-color: #ffdd2f;
 }
