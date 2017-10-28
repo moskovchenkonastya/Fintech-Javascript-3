@@ -10,8 +10,14 @@
  */
 class NumberAndString {
   constructor(str) {
-
+    this.string = str;
+    this.number = str.length;
+  }
+  toString() {
+    return this.string;
+  }
+  valueOf() {
+    return this.number;
   }
 }
-
 module.exports = NumberAndString;

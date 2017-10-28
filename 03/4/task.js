@@ -6,7 +6,15 @@
  */
 
 function promiseRace(promises) {
-  return Promise.resolve(null);
+  return new Promise((resolve, reject) => {
+    promises.forEach(promise => {
+      promise.then(
+        result => {
+          resolve(result);
+        },
+        reject
+      );
+    });
+  });
 }
-
 module.exports = promiseRace;
