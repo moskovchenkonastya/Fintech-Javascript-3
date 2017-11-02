@@ -2,17 +2,58 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Задание 5.4</title>
+    <link rel="stylesheet" href="https://github.com/necolas/normalize.css/">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,400i,700&amp;subset=cyrillic" rel="stylesheet">
+    <title>Тинькофф</title>
 </head>
 <body>
-<h1>Сверстать форму. Pixel-perfect. Select делать не нужно</h1>
-<p>
-    Подробности по ссылке:
-    <a href="https://app.zeplin.io/project/58a307271a9f6d513890adc8/screen/58a3075a4ec334e848d7f333">
-        https://app.zeplin.io/project/58a307271a9f6d513890adc8/screen/58a3075a4ec334e848d7f333
-    </a>, для того чтобы получить доступ, нужно зарегестрироваться на
-    <a href="https://zeplin.io/">zeplin.io</a>, и попросить доступ у Евгения Мамаева.
-</p>
-<img src="./task.png" alt="">
+    <h1 class = "header">Заполните несколько<br>простых полей</h1>
+    <div class = "form-wrapper">
+        <form class = "form-head">
+            <fieldset class = "form-set">
+                <div class = "form-elem">
+                    <input id = "name-elem" class = "input-elem" type = "text" required>
+                    <label class = "elem-label" for = "name-elem">ФИО</label>
+                    <div class = "sign"></div>
+                </div>
+                <div class = "form-elem">
+                    <input id = "city-form" class = "input-elem" type = "text" required>
+                    <label class = "elem-label" for = "city-form">Город проживания</label>
+                    <div class = "error"></div>
+                    <div class = "error-message">Для заполнения этого поля не допустимо использовать буквы латинского алфавита</div>
+                </div>
+                <div class = "form-elem">
+                    <input id = "phone-form" class = "input-elem" type = "text" required>
+                    <label class = "elem-label" for = "phone-form">Мобильный телефон</label>
+                </div>
+                <div class = "form-elem">
+                    <input id = "email-form" class = "input-elem" type = "text" required>
+                    <label class = "elem-label" for = "email-form">Мобильный телефон</label>
+                    <div class = "support">
+                        <p class = "support-message">Ваши данные замаскированы в целях безопасности. Для изменения информации с вами свяжется оператор колл-центра.</p>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class = "form-set">
+                <legend class = "select-legend">Выберите это или другое</legend>
+                <div class = "select-form">
+                    <div class = "elem-form">
+                        <label class = "select-label">Это
+                        <input type = "radio" class = "select-field" name="radio" checked>
+                        <span class = "mark"></span>
+                        </label>
+                    </div>
+                    <div class = "elem-form">
+                        <label class = "select-label">Другое
+                            <input type = "radio" class = "select-field" name="radio">
+                            <span class = "mark"></span>
+                        </label>
+                    </div>
+                </div>
+            </fieldset>
+            <button class = "form-button">Отправить</button>
+        </form>
+    </div>
 </body>
 </html>
