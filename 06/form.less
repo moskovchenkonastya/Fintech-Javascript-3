@@ -25,6 +25,7 @@
 }
 
 .form-set {
+
   &_text {
     display: flex;
     flex-direction: column;
@@ -118,21 +119,24 @@
   border-radius: 6px;
 }
 
-.error {
-  position: absolute;
-  top: 0;
-  right: 0;
-  display: none;
-  padding: 0 31px;
-  width: 24px;
-  height: 66px;
-  border-radius: 6px;
-  background-color: inherit;
-  background-image: url(img/error.svg);
-  background-position: center;
-  background-repeat: no-repeat;
+.form__item--error {
 
-  &-message {
+  &_sign {
+    position: absolute;
+    background-color: inherit;
+    background-image: url(img/error.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    top: 0px;
+    right: 0;
+    padding: 0 31px;
+    display: none;
+    width: 24px;
+    height: 66px;
+    border-radius: 6px;
+  }
+
+  &_message {
     display: none;
     margin: 11px 0 4px;
     color: #d0021b;
@@ -141,23 +145,15 @@
   }
 }
 
-
-.error .form__item_label {
-  outline: none;
-  background-color: inherit;
-  box-shadow: 0 0 0 1px #d0011b;
-}
-
-
-.form__item .error-message {
+.form__item .form__item--error_message {
   display: block;
 }
 
-.form__item .error {
+.form__item .form__item--error_sign {
   display: block;
 }
 
-.support {
+.form__item--support {
   position: absolute;
   top: 0;
   right: 0;
@@ -193,19 +189,40 @@
   }
 }
 
-
-.support:hover .support-message {
+.form__item--support:hover .form__item--support-message {
+  display: block;
   z-index: 1;
   opacity: 1;
   transition: opacity 0.5s ease-in-out;
 }
 
-.support .support-message {
+.form__item--support .form__item--support-message {
   outline: none;
-  background-color: rgba(255, 255, 255, 1);
+  background-color: @white_color;
   border: solid 1px #dddfe0;
 }
 
+.block-header {
+  margin: 0;
+  color: @grey_color;
+  text-align: center;
+  font-weight: 300;
+  font-size: 50px;
+
+  @media (max-width: @mobile_width) {
+    font-size: 30px;
+  }
+
+  &_choice {
+    margin: 30px 0 13px;
+    font-size: 21px;
+    line-height: 1.15;
+
+    @media (max-width: @mobile_width) {
+      font-size: 21px;
+    }
+  }
+}
 
 .form-select {
   display: flex;
@@ -217,7 +234,7 @@
   }
 }
 
-.select-legend {
+.form-select__legend {
   margin: 30px 0 13px;
   color: @grey_color;
   text-align: center;
@@ -229,51 +246,34 @@
 .form-select__item {
   position: relative;
   margin: 12px;
-  width: calc(50% - 24px);
+  width: ~"calc(50% - 24px)";
   border: solid 1px #dddfe0;
   border-radius: 6px;
   color: @grey_color;
   text-align: left;
   font-size: 17px;
-  font-family: @grey_color;
+  font-family: @font;
   line-height: 1.18;
+
   @media (max-width: @mobile_width) {
     margin: 12px 0;
     width: 100%;
   }
 }
 
-.form-select_label {
+.form-select__label {
   position: relative;
   display: block;
   padding: 21px 18px;
-  color: #74a3c7;
-  opacity: 0.6;
   cursor: pointer;
-  transition: color 0.4s ease-in-out;
-
-  &::after {
-    position: absolute;
-    top: 18px;
-    right: 18px;
-    z-index: -1;
-    display: block;
-    width: 30px;
-    height: 30px;
-    border: 0 solid #ffdd2f;
-    border-radius: 100%;
-    background-color: #eef2f7;
-    content: '';
-    transition: border 0.3s ease-in-out 0.1s, background-color 0.3s ease-in-out;
-  }
 }
 
-.select-field {
+.form-select__field {
   position: absolute;
   visibility: hidden;
 }
 
-.mark {
+.form-select__mark {
   position: absolute;
   top: 18px;
   right: 18px;
@@ -286,11 +286,11 @@
   content: '';
 }
 
-.select-field:checked ~ .mark {
+.form-select__field:checked ~ .form-select__mark {
   background-color: @yellow_color;
 }
 
-.select-field ~ .mark::before {
+.form-select__field ~ .form-select__mark::before {
   background-color: #3e4757;
   width: 8px;
   height: 8px;
@@ -303,11 +303,11 @@
   border-radius: 100%;
 }
 
-.select-field:checked ~ .mark::before {
+.form-select__field:checked ~ .form-select__mark::before {
   transform: translate(-50%, -50%) scale(1);
 }
 
-.form-button {
+.form-select__button {
   border: none;
   border-radius: 6px;
   background-color: @yellow_color;

@@ -103,10 +103,10 @@
                 <div class = "sign"></div>
             </div>
             <div class = "form__item">
-                <input id = "city-form" class = "form__item--input" type = "text" required>
-                <label class = "form__item_label" for = "city-form">Город проживания</label>
-                <div class = "error"></div>
-                <div class = "error-message">Для заполнения этого поля не допустимо использовать буквы латинского алфавита</div>
+                <input id = "city-form" class = "form__item form__item--input" type = "text" required>
+                <label class = "form__item form__item_label" for = "city-form">Город проживания</label>
+                <div class = "form__item--error form__item--error_sign"></div>
+                <div class = "form__item--error form__item--error_message">Для заполнения этого поля не допустимо использовать буквы латинского алфавита</div>
             </div>
             <div class = "form__item">
                 <input id = "phone-form" class = "form__item--input" type = "text" required>
@@ -115,29 +115,29 @@
             <div class = "form__item">
                 <input id = "email-form" class = "form__item--input" type = "text" required>
                 <label class = "form__item_label" for = "email-form">Электронная почта</label>
-                <div class = "support">
-                    <p class = "support-message">Ваши данные замаскированы в целях безопасности. Для изменения информации с вами свяжется оператор колл-центра.</p>
+                <div class = "form__item--support">
+                    <p class = "form__item--support-message">Ваши данные замаскированы в целях безопасности. Для изменения информации с вами свяжется оператор колл-центра.</p>
                 </div>
             </div>
         </fieldset>
         <fieldset class = "form-set form-set_choose">
-            <legend class = "select-legend">Выберите это или другое</legend>
+            <legend class = "block-header block-header_choice">Выберите это или другое</legend>
             <div class = "form-select">
                 <div class = "form-select__item">
-                    <label class = "form-select_label">Это
-                        <input type = "radio" class = "select-field" name="radio" checked>
-                        <span class = "mark"></span>
+                    <label class = "form-select__label">Это
+                        <input type = "radio" class = "form-select__field" name="radio" checked>
+                        <span class = "form-select__mark"></span>
                     </label>
                 </div>
                 <div class = "form-select__item">
-                    <label class = "form-select_label">Другое
-                        <input type = "radio" class = "select-field" name="radio">
-                        <span class = "mark"></span>
+                    <label class = "form-select__label">Другое
+                        <input type = "radio" class = "form-select__field" name="radio">
+                        <span class = "form-select__mark"></span>
                     </label>
                 </div>
             </div>
         </fieldset>
-        <button class = "form-button">Отправить</button>
+        <button class = "form-select__button">Отправить</button>
     </form>
 </div>
 
