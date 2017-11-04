@@ -1,9 +1,28 @@
 @yellow_color: #ffdd2d;
 @grey_color: #333;
-@white-color: #fff;
+@white_color: #fff;
 
 @font: Roboto, -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI',
 'Helvetica Neue', Arial, sans-serif;
 
-@mobile-width: 640px;
-@desktop-width: 756px;
+@mobile_width: 640px;
+@desktop_width: 756px;
+
+body {
+  font-family: @font;
+  font-size: 16px;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.wrapper {
+  margin: 0 auto;
+  padding: 0 18px;
+  max-width: 864px;
+}
