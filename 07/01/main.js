@@ -43,3 +43,4 @@ input.addEventListener('input', () => {
     a.textContent = `${input.value.replace(/\s/g, '')}`;
   }
 });
+
