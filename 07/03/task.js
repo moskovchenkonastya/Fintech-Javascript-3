@@ -7,10 +7,10 @@ const throttle = (time, callback) => {
   const callbackNew = (...args) => {
     if (Date.now() > time + prevTime) {
       callback(...args);
-      prevTime = Date.now()
+      prevTime = Date.now();
     } else {
       setTimeout(() => {
-        callbackNew(...args)
+        callbackNew(...args);
       }, time + prevTime - Date.now());
     }
   };
