@@ -1,11 +1,11 @@
 const input = document.querySelector('input');
-const link = document.querySelector('a');
+const a = document.querySelector('a');
 
-const mask = '+7(###)-###-##-##';
+const mask = '+ 7 (_ _ _) - _ _ _ - _ _ - _ _';
 
 input.addEventListener('focus', () => {
     if (input.value === '') {
-        input.value = '+7';
+        input.value = '+ 7 (     ) -       -     -    ';
     }
 });
 
@@ -15,28 +15,31 @@ input.addEventListener('blur', () => {
     }
 });
 
-
-input.addEventListener('input', event => {
-    const posStart = input.selectionStart;
-    const data = Number(event.data).toString();
-
-    if (evt.data !== null && Number.isNaN(+parsedData)) {
-        input.value = previousValue;
-        input.selectionStart = selectionStart - evt.data.length;
-        input.selectionEnd = selectionStart - evt.data.length;
-        return;
+function setCursorPosition(len, cur) {
+    cur.focus();
+    if (cur.setSelectionRange) { cur.setSelectionRange(len, len); } else if (cur.createTextRange) {
+        const range = cur.createTextRange();
+        range.collapse(true);
+        range.moveEnd('character', len);
+        range.moveStart('character', len);
+        range.select();
     }
+}
 
-    if (evt.data === null && selectionStart >= 2) {
-        input.value = cutSymbols(selectionStart);
+input.addEventListener('input', () => {
+
+    let i = 0;
+    let cur = input.value.replace(/\D/g, '');
+    let lenInput = input.value.length;
+    let lenMask = mask.length;
+
+    input.value = mask.replace(/./g, num => {
+        return (/[_\d]/.test(num) && i < lenMask) ? cur.charAt(i++) : i >= lenMask ? '' : num;
+    });
+
+    setCursorPosition(lenInput, input);
+
+    if (lenInput === lenMask) {
+        a.textContent = `${input.value.replace(/\s/g, '')}`;
     }
-
-    const number = input.value.replace(/\D+/g, '').slice(0, 11);
-    const maskArray = mask.split('');
-
-    previousValue = maskNumber(number, maskArray);
-    input.value = previousValue;
-    setCursor(selectionStart, parsedData);
-
-    updateLink();
 });
