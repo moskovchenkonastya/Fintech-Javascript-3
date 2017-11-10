@@ -35,7 +35,7 @@ function loadData(pageLoad) {
           date.textContent = elem.description + ' Дата создания: ' + created + '. Последний коммит: ' + elemOfCommit;
           wrapper.appendChild(link);
           wrapper.appendChild(date);
-          list.appendChild(wrapper)
+          list.appendChild(wrapper);
         });
       }
       // console.log('Request succeeded with JSON response', data);
