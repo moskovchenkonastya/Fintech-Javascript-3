@@ -19,3 +19,4 @@ const throttle = (time, callback) => {
 };
 
 module.exports = { throttle };
+
