@@ -1,28 +1,29 @@
 <!DOCTYPE HTML>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Тинькофф</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
-        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,400i,700&amp;subset=cyrillic" rel="stylesheet">
-        <link rel="stylesheet/less" type="text/less" href="styles.less" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">    
-    </head>
+<head>
+    <meta charset="utf-8">
+    <title>Тинькофф</title>
+    <link rel="stylesheet/less" type="text/less" href="styles.less" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js" ></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,400i,700&amp;subset=cyrillic" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+</head>
+<body>
 
-    <div class="wrapper">
-        <header class="main-header">
-            <img src="img/logo.svg" class="main-header__logo" width="197" height="65" alt="Тинькофф">
-            <img src="img/logo-mobile.svg" class="main-header__logo-mobile" width="50" height="44" alt="Тинькофф">
-            <a class="main-header__phone" href="phone:8-800-555-11-22">8 800 555-11-22</a>
-            <a class="main-header__hamburger"></a>
-        </header>
-    </div>
-
+<div class="wrapper">
+    <header class="main-header">
+        <img src="img/logo.svg" class="main-header__logo" width="197" height="65" alt="Тинькофф">
+        <img src="img/logo-mobile.svg" class="main-header__logo-mobile" width="50" height="44" alt="Тинькофф">
+        <a class="main-header__phone" href="phone:8-800-555-11-22">8 800 555-11-22</a>
+        <a class="main-header__hamburger"></a>
+    </header>
+</div>
 
 <nav class="menu">
     <div class="wrapper">
         <ul class="menu__list">
-            <li class="menu__item menu__link--active">
+            <li class="menu__item menu__item--active">
                 <a href="#">Карты</a>
             </li>
             <li class="menu__item">
@@ -44,4 +45,100 @@
     </div>
 </nav>
 
+<div class="card-wrapper">
+    <div class="wrapper">
+        <div class="card">
+            <div class="card__description">
+                <h1 class="card_header">Карты для&nbsp;вас
+                    <br>прямо&nbsp;сейчас</h1>
+                <div class="card_text">Выбирайте&nbsp;карту, пользуйтесь
+                    <br>удобными&nbsp;сервисами</div>
+                <button class="main-button button--card" type="button">Оформить заявку</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="wrapper">
+    <div class="tag">
+        <div class="field__item" title="Кафе">
+            <span class="field__item_text">Кафе</span>
+            <button class="field__item_remove" title="Удалить" type="button">Удалить</button>
+        </div>
+        <div class="field__item" title="Интернет">
+            <span class="field__item_text">Интернет</span>
+            <button class="field__item_remove" title="Удалить" type="button">Удалить</button>
+        </div>
+        <div class="field__item" title="Телефон">
+            <span class="field__item_text">Телефон</span>
+            <button class="field__item_remove" title="Удалить" type="button">Удалить</button>
+        </div>
+        <div class="field__item" title="Авто">
+            <span class="field__item_text">Авто</span>
+            <button class="field__item_remove" title="Удалить" type="button">Удалить</button>
+        </div>
+        <div class="field__item" title="ЖКХ">
+            <span class="field__item_text">ЖКХ</span>
+            <button class="field__item_remove" title="Удалить" type="button">Удалить</button>
+        </div>
+        <div class="field__item" title="Одежда и обувь">
+            <span class="field__item_text">Одежда и обувь</span>
+            <button class="field__item_remove" title="Удалить" type="button">Удалить</button>
+        </div>
+        <div class="field__item" title="Супермаркеты, гастраномы, универмаги и другое">
+            <span class="field__item_text">Супермаркеты, гастраномы, универмаги и другое</span>
+            <button class="field__item_remove" title="Удалить" type="button">Удалить</button>
+        </div>
+        <input class="tag_input">
+    </div>
+</div>
+<h1 class = "header">Заполните несколько<br>простых полей</h1>
+<div class = "form-wrapper">
+    <form class = "form-head">
+        <fieldset class = "form-set form-set_text">
+            <div class = "form__item">
+                <input id = "name-elem" class = "form__item--input" type = "text" required>
+                <label class = "form__item_label" for = "name-elem">ФИО</label>
+                <div class = "sign"></div>
+            </div>
+            <div class = "form__item">
+                <input id = "city-form" class = "form__item--input form__item--input-error" type = "text" required>
+                <label class = "form__item form__item_label" for = "city-form">Город проживания</label>
+                <div class = "form__item--error form__item--error_sign"></div>
+                <div class = "form__item--error form__item--error_message">Для заполнения этого поля не допустимо использовать буквы латинского алфавита</div>
+            </div>
+            <div class = "form__item">
+                <input id = "phone-form" class = "form__item--input" type = "text" required>
+                <label class = "form__item_label" for = "phone-form">Мобильный телефон</label>
+            </div>
+            <div class = "form__item">
+                <input id = "email-form" class = "form__item--input" type = "text" required>
+                <label class = "form__item_label" for = "email-form">Электронная почта</label>
+                <div class = "form__item--support">
+                    <p class = "form__item--support-message">Ваши данные замаскированы в целях безопасности. Для изменения информации с вами свяжется оператор колл-центра.</p>
+                </div>
+            </div>
+        </fieldset>
+        <fieldset class = "form-set form-set_choose">
+            <legend class = "block-header block-header_choice">Выберите это или другое</legend>
+            <div class = "form-select">
+                <div class = "form-select__item">
+                    <label class = "form-select__label">Это
+                        <input type = "radio" class = "form-select__field" name="radio" checked>
+                        <span class = "form-select__mark"></span>
+                    </label>
+                </div>
+                <div class = "form-select__item">
+                    <label class = "form-select__label">Другое
+                        <input type = "radio" class = "form-select__field" name="radio">
+                        <span class = "form-select__mark"></span>
+                    </label>
+                </div>
+            </div>
+        </fieldset>
+        <button class = "form-select__button">Отправить</button>
+    </form>
+</div>
+
+</body>
 </html>

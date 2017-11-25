@@ -1,18 +1,20 @@
+@import 'variables.less';
+
 
 .menu {
-  background-color: #3e4757;
+  background-color: #3e4758;
 
-  a {
+  a{
     display: inline-block;
-    padding: 25px 0 18px;
-    color: @white-color;
+    padding: 26px 0 18px;
+    color: @white_color;
     text-decoration: none;
     text-transform: uppercase;
     font-size: 13px;
-    line-height: 1.4;
+
   }
 
-  @media (max-width: @mobile-width) {
+  @media (max-width: @mobile_width) {
     display: none;
   }
 }
@@ -30,11 +32,13 @@
 .menu__item {
   transition: border-bottom-color 0.15s ease-in-out;
 
-  &_active {
-    border-bottom: 3px solid @yellow-color;
+  &--active {
+    border-bottom: 3px solid @yellow_color;
   }
 
   &:hover {
-    border-bottom: @color-yellow;
+    border-bottom: @yellow_color;
   }
 }
+
+
